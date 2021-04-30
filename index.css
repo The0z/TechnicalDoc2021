@@ -1,0 +1,19 @@
+/* This time will follow mobile first design requirements */
+@media only screen and (min-width: 768px) {
+    /* Desktop Settings */
+    
+
+}
+
+#navbar{
+    position:fixed; /* Want to fix so it doesnt scroll w pg*/
+    top: 0px;
+    left:0px;
+    display:flex;
+    flex-direction: column;
+}
+
+#main-doc{
+    position: absolute; /* Since part of body it will scroll with pg */
+    margin-left: 320px;
+}
