@@ -12,7 +12,7 @@ After following the requirements (see section below) and passing the 16 units te
 
 ![TechDocPage](https://github.com/The0z/TechnicalDoc2021/blob/main/imgs/DesktopWebpage.gif "Desktop Technical Document FCC")
 
-The working version of this website can be found on codepen https://codepen.io/the0z/pen/GRrVqMv
+The working version of this website can be found on codepen https://codepen.io/the0z/full/GRrVqMv
 
 ## The Requirements 
 Fulfill the below user stories and get all of the tests to pass. Give it your own personal style.
