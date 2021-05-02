@@ -1,4 +1,6 @@
 <!-- Main and Only Page for Survey Form Part of FCC web development course -->
+<!-- Used freely available content for a sample tech doc from: https://edu-content-preview.arduino.cc/content-preview/university/project/CONTENTPREVIEW+AEKR2 -->
+<!-- all html is original -->
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -49,6 +51,24 @@
             <header>
                 <h1>Project Overview</h1>
             </header>
+            <img id=motorcycleImg src="https://www.datocms-assets.com/21897/1597927736-6-motorcycle-min.jpg">
+            <article>
+                <p>Time to build and program a motorcycle that can self-balance and maneuver by itself using a flywheel. The goal of this project is to
+                teach physics, control algorithms, and how to simulate a vehicle's overall behavior. 
+                </p>
+                <p>The motorcycle project consists of a two-wheeled robot that can balance and move using a rotating disc, which we will call inertia wheel from now on, 
+                to compensate if the motorcycle loses balance. The motorcycle is controlled by an Arduino Nano 33 IoT, the Arduino Nano Motor Carrier, a DC motor to move the back wheel, DC motor with Encoder to control the inertia wheel and a standard servo motor to steer the motorcycle’s handle.
+                </p>
+                <p> This project will teach you the following:</p>
+                <ul>
+                    <li class="contentILList">How to program the motorcycle using Mathworks Simulink</li>
+                    <li class="contentILList">Control its balance algorithm and make it move in a straight line</li>
+                    <li class="contentILList">Improve the quality of the control algorithms through rapid prototyping</li>
+                </ul>
+                <h3>Assembling the Bike</h3>
+                <p>Before you begin coding and modelling the project you need to build it! A quick assembly video can be seen below. <br><b>BEWARE:</b> the motorcycle will take approximately 45 minutes to build.</p>
+                <iframe width="727" height="409" src="https://www.youtube.com/embed/pKrCGLd5Bn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
         </section>
         <section id="Modelling_and_Designing"class="main-section">
             <header>
@@ -73,6 +93,27 @@
         <section id="Further_Work" class="main-section">
             <header>
                 <h1>Further Work</h1>
+                <p>In this process we went through the entire design flow to implement a controller to solve the problems of balancing the motorcycle:</p>
+                <ol>
+                  <li>Deriving equations based on physical principles. We primarily relied on Newton's law when deriving equations.</li>
+                  <li>Implementing equations in software to simulate the system behavior.</li>
+                  <li>Developing a model using Simscape, a domain-specific library for modelling physical systems.</li>
+                  <li>Designing a feedback controller and testing it in the loop with a Simscape model.</li>
+                  <li>Implementing the feedback controller on real hardware.</li>
+                </ol>
+                <p>Some ways to further our work can be seen below:</p>
+                <ol>
+                  <li>External Mode with Wi-Fi (See Below)</li>
+                  <li>Balancing with Straight Motors (to be investigated later)</li>
+                  <li>Balancing with Steering (to be investigated later)</li>
+                </ol>
+                <h3>External Mode with Wi-Fi</h3>
+                <p>So far we have been running our models in the external mode through a USB cable, which means we need to keep the motorcycle in close proximity to our laptops. 
+                In order to let the motorcycle drive away from our computers, which need to rely on wireless communication protocols, such as Wi-Fi. 
+                In order to configure a model to run in external mode via Wi-Fi, open Configuration Parameters and navigate to the Hardware Implementation pane. 
+                Expand Target hardware resources by clicking on it and then click Wi-Fi properties. Enter your network credentials in Configuration Paramters of the motorcycle</p>
+                <p>This will allow the Simulink model connecting to the specified Wi-Fi network.</p>
+                <p>Next we would like to switch the external mode communication interface to Wi-Fi (Configuration parameters --> Hardware Implementation --> Communication interface --> WiFi)</p>
             </header>
         </section>
     </main>

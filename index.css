@@ -1,24 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 body{
     margin: 0;
     padding: 0;
-    background-color: lightblue;
+    background-color: lightgray;
+    font-family: "Roboto Mono", monospace;
 }
 
-
 #navbar{
-    display:flex;
-    flex-direction: column;
-    position:fixed; /* Want to fix so it doesnt scroll w pg*/
-    top: 0px;
-    left:0px;
+    position: fixed; 
+    top: 0;
     box-sizing: border-box;
     padding-top: 25px;
     padding-left: 20px;
     width: 100%;
     height: 300px;
-    background-color: lightblue;
+    background-color: lightgray;
     overflow: auto;
-    border-bottom: 3px solid;
+    border-bottom: 4px solid;
     z-index: 1;
 }
 
@@ -38,19 +37,33 @@ body{
     min-width: auto;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 10px;
     text-decoration: none;
+    color: black;
 }
 
 #main-doc{
     position: absolute; /* Since part of body it will scroll with pg */
+    display: flex;
+    flex-direction: column;
     margin-top: 300px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 0px;
     box-sizing: border-box;
     
+}
+
+.main-section {  /*Fixes the position fixed anchor jumping bug! */
+    margin-top: -300px; /* match the size of the nav bar */
+    padding-top: 300px; /* match the positive version of above */
+}
+
+#motorcycleImg{
+    height: 300px;
+    width: auto;
+    border-style: dotted;
 }
 
 /* This time will follow mobile first design requirements */
@@ -58,14 +71,20 @@ body{
 @media only screen and (min-width: 768px) {
     /* Desktop Settings */
     #navbar{
+        position: fixed; /* Want to fix so it doesnt scroll w pg*/
         width: 300px;
         height: 100%;
         border-bottom: 0px none;
-        border-right: 3px black solid;
+        border-right: 4px black solid;
     }
     
     #main-doc{
         margin-top: 0px;
         margin-left: 300px;
+    }
+
+    .main-section{
+        margin-top: 0;
+        padding-top: 0;
     }
 }
