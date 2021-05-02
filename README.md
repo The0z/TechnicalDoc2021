@@ -2,15 +2,17 @@
 Part of Free Code Camp - 300 hour Responsive Web Design Course
 
 ## My Results
-After following the requirements (see section below) and passing the 16 units tests this was my final product:
+After following the requirements (see section below) and passing the 16 units tests this was my final products:
 
-TEMP PLACEHOLDER WIP
+### Mobile Version (Built Mobile First Approach)
 
-![TechDocPage](https://github.com/The0z/ProductLandingPage2021/blob/main/imgs/webpageV2.gif "Technical Document FCC")
+![TechDocPage](https://github.com/The0z/TechnicalDoc2021/blob/main/imgs/MobileWebpage.gif "Mobile Technical Document FCC")
 
-TEMP PLACEHOLDER WIP
+### Desktop Version (Using Media Query)
 
-The working version of this website can be found on codepen INSERT LINK!!!!!!
+![TechDocPage](https://github.com/The0z/TechnicalDoc2021/blob/main/imgs/DesktopWebpage.gif "Desktop Technical Document FCC")
+
+The working version of this website can be found on codepen https://codepen.io/the0z/pen/GRrVqMv
 
 ## The Requirements 
 Fulfill the below user stories and get all of the tests to pass. Give it your own personal style.
