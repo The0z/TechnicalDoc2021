@@ -60,10 +60,20 @@ body{
     padding-top: 300px; /* match the positive version of above */
 }
 
-#motorcycleImg{
-    height: 300px;
-    width: auto;
+#cycleImg{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
     border-style: dotted;
+}
+
+code {
+    display: inline-block;
+    padding: 10px;
+    padding-right: 25px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: whitesmoke;
 }
 
 /* This time will follow mobile first design requirements */
@@ -86,5 +96,13 @@ body{
     .main-section{
         margin-top: 0;
         padding-top: 0;
+    }
+
+    #cycleImg{
+        width: 50%;
+    }
+
+    code {
+        width:50%;
     }
 }

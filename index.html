@@ -51,7 +51,7 @@
             <header>
                 <h1>Project Overview</h1>
             </header>
-            <img id=motorcycleImg src="https://www.datocms-assets.com/21897/1597927736-6-motorcycle-min.jpg">
+            <img id=cycleImg src="https://drive.google.com/uc?export=download&id=1L9o07tv5tk7SvDkvAg0V5GH80rE8Kq5s" alt="Image of Self Balancing Motorcycle">
             <article>
                 <p>Time to build and program a motorcycle that can self-balance and maneuver by itself using a flywheel. The goal of this project is to
                 teach physics, control algorithms, and how to simulate a vehicle's overall behavior. 
@@ -73,22 +73,132 @@
         <section id="Modelling_and_Designing"class="main-section">
             <header>
                 <h1>Modelling and Designing</h1>
-            </header>        
+
+            </header>
+            <article>
+                <p>In this exercise, you will learn:</p>
+                <ul>
+                    <li>How to model a dynamical system using the knowledge of underlying physical principles</li>
+                    <li>How to design a feedback controller,</li>
+                    <li>How to use Simulink for rapid prototyping and controller design.</li>
+                </ul>
+                <h3>Deriving the Equations of Motion for a balancing motorcycle</h3>
+                <p>The problem of balancing the motorcycle can be considered as a problem of controlling an inverted pendulum. Indeed, if you look at a standing motorcycle from the back, 
+                it may look as a pendulum rod with an inertia wheel attached to it.</p>
+                <p>Let’s begin by making the following assumptions:</p>
+                <p>... tons of information not relevent to this coding project requirements</p>
+                <p>Our first step here is launching MATLAB environment. Using the Current Folder navigator go to Motorcycle\exercise_6_1 folder. 
+                Open a script with model parameters by typing the following command in the Command Window and hitting Enter:</p>
+                <code>
+                >> edit('modelParameters.m') <br>
+                test
+                </code>
+                <p>Inside modelParameters.m the following can be found. Try to change these numbers to see how the motorcycle responds</p>
+                <code>
+                    g = 9.80665; <br>
+                    m_r = 0.2948; <br>
+                    m_w = 0.0695; <br>
+                    R = 0.05 <br>
+                    I_w_C = 0.5*m_w*R^2 % corresponding inertias<br>
+                    % more code exists in the actual file ...
+                </code>
+                <p>As this is a sample webpage please see the edu-content-preview.arduino.cc for more details</p>
+            </article>        
         </section>
         <section id="Programming_Components" class="main-section">
             <header>
                 <h1>Programming Components</h1>
-            </header>        
+            </header>
+            <article>
+                <p>In this exercise you will familiarise yourself with key hardware components of the motorcycle: sensors and actuators. 
+                You will create Simulink models that can interface with sensors and actuators and hence control the motorcycle.
+                </p>
+                <p>
+                Sensor is a device that detects changes in the environment. We use information about the environment coming from the sensors to change this environment in the way we want. 
+                Implementing those changes is performed via another class of devices, known as actuators.
+                </p>
+                <p> ... more information dang this technical doucment is huge - can see why we make software that templates things </p>
+                <p>The code will output the following:</p>
+                <code>
+                    Arduino detected. <br>
+                    This device is ready for use with Simulink Support Package for Arduino Hardware. <br>
+                    To use this device with MATLAB, install MATLAB support package for Arduino hardware. <br>
+                    >>
+                </code>
+                <p>As this is a sample webpage please see the edu-content-preview.arduino.cc for more details</p>
+            </article>        
         </section>
         <section id="Closed-loop_Control"class="main-section">
             <header>
                 <h1>Closed-loop Control</h1>
             </header>
+            <article>
+            <p>
+                In this exercise, you will combine the controller that you designed in section 6.1 and the component models you completed in section 6.2 to 
+                implement a complete balance control application that will run on the Arduino Nano 33 IoT board. This will give you the chance to test out 
+                your algorithm on the motorcycle and refine it to account for model imprecision and hardware-specific concerns. By the end of this exercise, 
+                you will have a motorcycle that balances in place.
+            </p>
+            <p>... more technical information </p>
+            <p>Most of the blocks in the model will share a common parameter: sampling time. In the previous exercises we were setting this parameter by specifying the 
+            sampling time (0.01) for each block. To achieve better flexibility, in this exercise we will parametrise the sampling time with a variable Ts. 
+            We will create the variable in MATLAB workspace:
+            </p>
+            <code>
+                >> Ts = 0.01;
+            </code>
+            <p> ... more technical information </p>
+            <p>You can set the motorcycle to beep so people can hear it coming for safety. This can be done by creating the following file</p>
+            <code>
+            #include&lt;ArdiunoRobot.h&gt; <br>
+            #include&lt;Wire.h&gt; <br>
+            #include&lt;SPI.h&gt; <br> <br>
+            void setup() { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;//put your setup code here, to run once: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Robot.begin(); <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Robot.beginSpeaker(); <br>
+            } <br> <br>
+            void loop() { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;// Put your main code here, to run repeately: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Robot.beep(BEEP_SIMPLE);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;delay(1000);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Robot.beep(BEEP_LONG);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;delay(3000);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Robot.beep(BEEP_DOUBLE);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;delay(2000);<br>
+            } <br>
+            </code>
+            </article>
         </section>
         <section id="Lessons_Learned" class="main-section">
             <header>
                 <h1>Lessons Learned</h1>
             </header>
+            <article>
+                <p>In this chapter we went through the entire design flow to implement a controller to solve the problems of balancing the motorcycle. 
+                Through this you learnt:</p>
+                <h3>Apply Mathematical Theory in the Simulink Model</h3>
+                <p>
+                With the understanding of the motorcycle system dynamics you have learned how to 
+                apply the equations of motion to act on the inertial wheel and counterbalance its tendency to fall.
+                </p>
+                <h3>Model base design</h3>
+                <p>
+                In adition to the mathematical approach, we studied a different method to design the control algorithm by using a 
+                simulation of a 3D model whose behaviour is determined by Simulink blocks.
+                </p>
+                <h3>Pid Control Modeling Based on IMU Sensor Data</h3>
+                <p>
+                You also learned how to build your PDP control system, using the positioning sensor data to feed the control algorithm, and studied how the PDP controller responds to 
+                different random stimuli and which factors (Kp, Ki, and Kpw) matter the most to keep the motorcycle standing.
+                </p>
+                <h3>Apply Safety Measures</h3>
+                <p>
+                You learned how to integrate different safety measures into your system to protect your hardware from damaging. The safety measures includes battery protection, deactivation of inertial wheel when the motorcycle loose balance, 
+                limitation of the inertial wheel speed using the motor encoder and stopping the system from running until the IMU is calibrated.
+                </p>
+
+            </article>
         </section>
         <section id="Further_Work" class="main-section">
             <header>
@@ -113,7 +223,7 @@
                 <p>So far we have been running our models in the external mode through a USB cable, which means we need to keep the motorcycle in close proximity to our laptops. 
                 In order to let the motorcycle drive away from our computers, which need to rely on wireless communication protocols, such as Wi-Fi. 
                 In order to configure a model to run in external mode via Wi-Fi, open Configuration Parameters and navigate to the Hardware Implementation pane. 
-                Expand Target hardware resources by clicking on it and then click Wi-Fi properties. Enter your network credentials in Configuration Paramters of the motorcycle</p>
+                Expand Target hardware resources by clicking on it and then click Wi-Fi properties. Enter your network credentials in Configuration Parameters of the motorcycle application.</p>
                 <p>This will allow the Simulink model connecting to the specified Wi-Fi network.</p>
                 <p>Next we would like to switch the external mode communication interface to Wi-Fi (Configuration parameters --> Hardware Implementation --> Communication interface --> WiFi)</p>
             </article>
